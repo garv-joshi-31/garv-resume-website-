@@ -1,0 +1,456 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Garv Joshi</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=Caveat:wght@600&family=Space+Grotesk:wght@600;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: black dotted-grid hero with a hand-drawn growth chart, a tilted yellow keyword tape, then prose sections that each carry one illustration (growth curve, scooter sketch, Bhopal-Bangalore route, award stickers), and a zigzag edge into a solid yellow contact band. One deliberate look: black, yellow, soft white. */
+:root {
+  --font-display: "Bricolage Grotesque", "Arial Narrow", Arial, sans-serif;
+  --font-body: "Source Serif 4", Cambria, Georgia, serif;
+  --font-hand: "Caveat", "Comic Sans MS", cursive;
+  --font-map: "Space Grotesk", Arial, sans-serif;
+  --font-tag: "IBM Plex Mono", Consolas, "Courier New", monospace;
+  --hero-bg: #000000;
+  --hero-fg: #F5F5F0;
+  --hero-muted: #A8A8A0;
+  --bg: #0F0F11;
+  --tint: #1A1A1D;
+  --fg: #F2F2EE;
+  --muted: #A3A39B;
+  --line: #2C2C30;
+  --mark: #FFD400;
+  --mark-fg: #0B0B0C;
+  --mark-soft: rgba(255, 212, 0, .35);
+  --bar-a: #FFD400;
+  --bar-a-fg: #0B0B0C;
+  --bar-b: #2D2D32;
+  --bar-b-fg: #F2F2EE;
+  --yellow-bg: #FFD400;
+  --yellow-fg: #0B0B0C;
+  --yellow-muted: #4A4200;
+  --yellow-line: rgba(11, 11, 12, .3);
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font: 400 1.125rem/1.7 var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+.wrap {
+  width: 100%;
+  max-width: 1080px;
+  margin-inline: auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+a { color: inherit; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--mark); outline-offset: 3px; }
+.contact a:focus-visible, .contact button:focus-visible { outline-color: var(--yellow-fg); }
+@media (prefers-reduced-motion: no-preference) {
+  a, button { transition: color .15s, background-color .15s, border-color .15s, transform .2s; }
+}
+h2, h3 { font-family: var(--font-display); text-wrap: balance; }
+h2 { margin: 0; font-weight: 800; font-size: clamp(1.75rem, 4vw, 2.5rem); line-height: 1.1; letter-spacing: -.02em; }
+p { margin: 0 0 1em; text-wrap: pretty; }
+p:last-child { margin-bottom: 0; }
+svg { display: block; }
+.hand { font-family: var(--font-hand); font-weight: 600; }
+.disp { font-family: var(--font-display); font-weight: 800; }
+.map-city { font-family: var(--font-map); font-weight: 700; }
+.map-tag { font-family: var(--font-tag); font-weight: 500; letter-spacing: .12em; }
+.postit { position: relative; display: inline-block; margin-top: 30px; padding: 16px 20px 14px; max-width: 15em; background: var(--mark); color: var(--mark-fg); font: 600 1.65rem/1.1 var(--font-hand); transform: rotate(-2deg); box-shadow: 5px 7px 0 rgba(245, 245, 240, .14); }
+.postit::before { content: ""; position: absolute; top: -12px; left: 50%; width: 70px; height: 22px; margin-left: -35px; background: rgba(245, 245, 240, .55); transform: rotate(3deg); }
+.aside { display: flex; align-items: flex-start; gap: 6px; margin: 18px 0 0; color: var(--mark); font: 600 1.7rem/1.1 var(--font-hand); transform: rotate(-2deg); max-width: 11em; }
+.aside svg { flex: none; width: 34px; height: auto; margin-top: -6px; }
+.start { display: flex; align-items: flex-end; gap: 8px; margin: 0 0 6px; font: 600 1.8rem/1 var(--font-hand); transform: rotate(-2deg); transform-origin: left bottom; }
+.start svg { width: 26px; height: auto; }
+.soft { background: linear-gradient(transparent 58%, var(--mark-soft) 58% 92%, transparent 92%); padding: 0 .08em; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+
+/* Hero */
+.hero {
+  background-color: var(--hero-bg);
+  background-image: radial-gradient(rgba(245, 245, 240, .14) 1px, transparent 1px);
+  background-size: 26px 26px;
+  color: var(--hero-fg);
+}
+.hero .wrap { padding-block: 24px 56px; }
+.nav { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 10px 28px; font: 600 1rem var(--font-display); margin-bottom: 56px; }
+.nav ul { display: flex; flex-wrap: wrap; gap: 6px 24px; list-style: none; margin: 0; padding: 0; }
+.nav a { text-decoration: none; color: var(--hero-muted); }
+.nav a:hover { color: var(--mark); }
+.nav .wordmark { color: var(--hero-fg); font-weight: 800; font-size: 1.125rem; }
+.hero-grid { display: grid; gap: 40px; align-items: center; }
+@media (min-width: 860px) { .hero-grid { grid-template-columns: minmax(0, 1.12fr) minmax(0, .88fr); gap: 48px; } }
+h1 { margin: 0 0 32px; font: 800 clamp(2.4rem, 5.4vw, 4.1rem)/1.04 var(--font-display); letter-spacing: -.03em; text-wrap: balance; }
+.hero .hl { background: var(--mark); color: var(--mark-fg); padding: 0 .12em; border-radius: 3px; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.intro { max-width: 34em; font-size: 1.1875rem; line-height: 1.6; color: var(--hero-fg); }
+.where { margin-top: 24px; color: var(--hero-muted); font-size: 1rem; font-style: italic; }
+.hero-art { width: 100%; max-width: 480px; height: auto; justify-self: center; }
+
+/* Keyword tape */
+.tape-wrap { overflow: hidden; padding-block: 30px; background: linear-gradient(var(--hero-bg) 50%, var(--bg) 50%); }
+.tape { background: var(--mark); color: var(--mark-fg); transform: rotate(-1.6deg); margin-inline: -4%; white-space: nowrap; overflow: hidden; }
+.tape-track { display: inline-flex; animation: tape 46s linear infinite; }
+.grp { display: inline-flex; align-items: center; flex: none; }
+.grp span { padding: 14px 0 14px 44px; font: 800 1.1875rem var(--font-display); text-transform: uppercase; letter-spacing: .02em; display: inline-flex; align-items: center; gap: 44px; }
+.grp span::after { content: ""; width: 9px; height: 9px; background: var(--mark-fg); transform: rotate(45deg); }
+@keyframes tape { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .tape-track { animation: none; } }
+
+/* Sections */
+main section { padding-block: 80px; }
+.why-grid { display: grid; gap: 28px; }
+@media (min-width: 820px) { .why-grid { grid-template-columns: 4fr 7fr; gap: 64px; } }
+.pull { font: 600 clamp(1.45rem, 3vw, 2rem)/1.3 var(--font-display); letter-spacing: -.01em; margin-bottom: 1em; text-wrap: balance; }
+.why-grid p { max-width: 36em; }
+.curve { margin: 56px 0 0; }
+.curve svg { width: 100%; height: auto; }
+
+.showroom { background: var(--tint); }
+.show-top { display: grid; gap: 24px; align-items: center; margin-bottom: 56px; }
+@media (min-width: 820px) { .show-top { grid-template-columns: 1fr 1fr; gap: 48px; } }
+.showroom .sub { margin: 12px 0 0; color: var(--muted); font-style: italic; }
+.scooter { width: 100%; max-width: 520px; height: auto; justify-self: center; }
+.steps { display: grid; gap: 36px; }
+@media (min-width: 820px) { .steps { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px 48px; } .steps .item:nth-child(2) { margin-top: 36px; } .steps .item:nth-child(3) { margin-top: 72px; } }
+.ico { width: 72px; height: 72px; margin-bottom: 14px; }
+.item h3 { margin: 0 0 10px; font-weight: 800; font-size: 1.375rem; line-height: 1.2; letter-spacing: -.01em; }
+.item p { color: var(--fg); }
+
+.study h2 { margin-bottom: 36px; }
+.study-top { display: grid; gap: 36px; margin-bottom: 44px; }
+@media (min-width: 820px) { .study-top { grid-template-columns: minmax(0, 1fr) 260px; align-items: center; gap: 56px; } }
+.tl { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); row-gap: 8px; }
+.tl .yr { grid-row: 1; padding-bottom: 6px; border-bottom: 1px solid var(--line); color: var(--muted); font: 600 .875rem var(--font-display); font-variant-numeric: tabular-nums; }
+.bar { padding: 10px 12px; border-radius: 6px; font: 600 .9375rem/1.3 var(--font-display); }
+.bar.b { grid-column: 1 / 5; grid-row: 2; background: var(--bar-b); color: var(--bar-b-fg); }
+.bar.a { grid-column: 2 / 6; grid-row: 3; background: var(--bar-a); color: var(--bar-a-fg); }
+.tl-note { margin: 14px 0 0; color: var(--muted); font-size: 1rem; font-style: italic; }
+.route { width: 100%; max-width: 280px; height: auto; justify-self: center; }
+.cols3 { display: grid; gap: 28px; }
+@media (min-width: 820px) { .cols3 { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; } }
+.cols3 .when { margin: 0 0 6px; color: var(--mark); font: 600 .9375rem var(--font-display); font-variant-numeric: tabular-nums; }
+.cols3 h3 { margin: 0 0 6px; font-weight: 800; font-size: 1.1875rem; line-height: 1.25; }
+.cols3 p { margin: 0; color: var(--muted); font-size: 1.0625rem; line-height: 1.5; }
+
+.two-wrap { border-top: 1px solid var(--line); }
+.two { display: grid; gap: 56px; }
+@media (min-width: 820px) { .two { grid-template-columns: 1fr 1fr; gap: 72px; } }
+.two h2 { margin-bottom: 28px; }
+.stickers { margin: 0; padding: 0; list-style: none; display: grid; gap: 28px; }
+.stk { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 22px; align-items: center; }
+.sticker { width: 96px; height: 96px; border-radius: 50%; background: var(--mark); color: var(--mark-fg); display: grid; place-content: center; text-align: center; transform: rotate(-8deg); outline: 2px dashed var(--mark); outline-offset: 5px; }
+.stk:nth-child(2) .sticker { transform: rotate(6deg); }
+.stk:nth-child(3) .sticker { transform: rotate(-3deg); }
+.sticker small { font: 700 .6875rem/1 var(--font-display); letter-spacing: .1em; text-transform: uppercase; }
+.sticker b { font: 800 2rem/1.05 var(--font-display); letter-spacing: -.02em; }
+.sticker b.sm { font-size: 1.5rem; }
+.stk:hover .sticker { transform: rotate(0deg) scale(1.05); }
+.stk strong { display: block; font: 800 1.125rem/1.25 var(--font-display); margin-bottom: 2px; }
+.stk span.t { color: var(--muted); font-size: 1.0625rem; line-height: 1.5; }
+.chips { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; margin: 24px 0 0; padding: 0; }
+.chips li { padding: 7px 14px; border: 2px solid var(--mark); border-radius: 999px; font: 600 .9375rem var(--font-display); color: var(--fg); }
+.chips li:nth-child(3n+1) { transform: rotate(-2deg); }
+.chips li:nth-child(3n+2) { transform: rotate(1.5deg); background: var(--mark); color: var(--mark-fg); }
+.chips li:nth-child(3n) { transform: rotate(-1deg); }
+
+/* Contact */
+.zig { display: block; width: 100%; height: 26px; }
+.contact { background: var(--yellow-bg); color: var(--yellow-fg); }
+.contact .wrap { padding-block: 56px 32px; }
+.contact h2 { font-size: clamp(2.25rem, 7vw, 4.25rem); line-height: 1; letter-spacing: -.03em; }
+.contact .ask { margin: 20px 0 36px; max-width: 28em; color: var(--yellow-fg); font-size: 1.1875rem; }
+.rows { margin: 0; max-width: 640px; }
+.row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; padding-block: 16px; border-top: 1px solid var(--yellow-line); }
+.row dt { flex: 0 0 90px; color: var(--yellow-muted); font: 600 .9375rem var(--font-display); }
+.row dd { margin: 0; flex: 1 1 200px; min-width: 0; overflow-wrap: anywhere; font-size: 1.125rem; font-weight: 600; }
+.copy { border: 1.5px solid var(--yellow-fg); background: transparent; color: var(--yellow-fg); padding: 6px 14px; border-radius: 8px; font: 600 .875rem var(--font-display); cursor: pointer; }
+.copy:hover { background: var(--yellow-fg); color: var(--yellow-bg); }
+.foot { margin: 48px 0 0; color: var(--yellow-muted); font-size: .9375rem; }
+</style>
+
+<header class="hero">
+  <div class="wrap">
+    <nav class="nav" aria-label="Sections">
+      <a class="wordmark" href="#top">Garv Joshi</a>
+      <ul>
+        <li><a href="#why">Why startups</a></li>
+        <li><a href="#showroom">The dealership</a></li>
+        <li><a href="#study">Studying</a></li>
+        <li><a href="#contact">Say hi</a></li>
+      </ul>
+    </nav>
+    <div class="hero-grid" id="top">
+      <div>
+        <h1>I'm Garv, and I'm hooked on <span class="hl">how businesses get built</span>.</h1>
+        <p class="intro">I study digital business and entrepreneurship at IIM Bangalore, and marketing at IPER in Bhopal. My father and I are both involved in an Ather Energy dealership, and working in it showed me how much goes on behind a sale. Now I want to know how you start something and make it scale.</p>
+        <p class="where">Writing from Bhopal, Madhya Pradesh</p>
+        <div class="postit">Right now it's two degrees, one dealership and a lot of questions.</div>
+      </div>
+      <svg class="hero-art" viewBox="0 0 480 440" role="img" aria-label="Sketch of six bars growing taller, a yellow arrow climbing above them, and a light bulb over the first bar">
+        <g stroke="#F5F5F0" stroke-opacity=".12" stroke-width="1">
+          <line x1="20" y1="100" x2="460" y2="100"/><line x1="20" y1="160" x2="460" y2="160"/>
+          <line x1="20" y1="220" x2="460" y2="220"/><line x1="20" y1="280" x2="460" y2="280"/>
+          <line x1="20" y1="340" x2="460" y2="340"/>
+        </g>
+        <g fill="#1B1B1E" stroke="#F5F5F0" stroke-width="2" stroke-opacity=".7">
+          <rect x="40" y="330" width="54" height="50" rx="3"/>
+          <rect x="112" y="300" width="54" height="80" rx="3"/>
+          <rect x="184" y="260" width="54" height="120" rx="3"/>
+          <rect x="256" y="215" width="54" height="165" rx="3"/>
+          <rect x="328" y="155" width="54" height="225" rx="3"/>
+        </g>
+        <rect x="400" y="80" width="54" height="300" rx="3" fill="#FFD400" stroke="#FFD400" stroke-width="2"/>
+        <line x1="20" y1="380" x2="460" y2="380" stroke="#F5F5F0" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M60 295 C 140 280 190 215 250 180 C 320 140 370 90 440 36" fill="none" stroke="#FFD400" stroke-width="5" stroke-linecap="round" stroke-dasharray="1 0"/>
+        <path d="M414 40 L440 36 L429 60" fill="none" stroke="#FFD400" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <g fill="none" stroke="#F5F5F0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="62" cy="228" r="15"/>
+          <path d="M55 245 h14 M57 252 h10"/>
+          <path d="M62 196 v-8 M40 205 l-6 -5 M84 205 l6 -5 M34 228 h-8 M90 228 h8"/>
+        </g>
+        <text x="100" y="212" class="hand" font-size="30" fill="#F5F5F0" transform="rotate(-4 100 212)">idea</text>
+        <text x="236" y="40" class="hand" font-size="30" fill="#FFD400" transform="rotate(-5 236 40)">scale it</text>
+        <text x="40" y="412" class="hand" font-size="26" fill="#A8A8A0">day one</text>
+        <text x="388" y="412" class="hand" font-size="26" fill="#A8A8A0">the goal</text>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<div class="tape-wrap" aria-hidden="true">
+  <div class="tape">
+    <div class="tape-track">
+      <div class="grp"><span>Startups</span><span>Digital business</span><span>Sales</span><span>Market research</span><span>Customer relations</span><span>Pitch decks</span><span>Data analytics</span><span>Digital branding</span></div>
+      <div class="grp"><span>Startups</span><span>Digital business</span><span>Sales</span><span>Market research</span><span>Customer relations</span><span>Pitch decks</span><span>Data analytics</span><span>Digital branding</span></div>
+    </div>
+  </div>
+</div>
+
+<main>
+  <section id="why">
+    <div class="wrap">
+      <div class="why-grid">
+        <div><h2>Why startups</h2><p class="aside">two degrees at once. yes, really.<svg viewBox="0 0 40 44" aria-hidden="true"><path d="M6 6 C 24 8, 34 18, 30 36 M30 36 L22 29 M30 36 L37 28" fill="none" stroke="#FFD400" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></p></div>
+        <div>
+          <p class="pull">I want to build something from the ground up, and I want it to <span class="soft">scale and last</span>.</p>
+          <p>Startups, digital business models and new ideas are what I keep coming back to, and I'm curious about wherever the next opportunity shows up. I'd rather be the one building something than the one reading about it.</p>
+          <p>That's why I'm doing two degrees at once. Marketing at IPER keeps me close to home, and digital business and entrepreneurship at IIM Bangalore is where I'm learning how ventures get built. I want classroom learning and real business experience to push each other along, so that one day I can build and scale something innovative and sustainable.</p>
+        </div>
+      </div>
+      <figure class="curve">
+        <svg viewBox="0 0 900 310" role="img" aria-label="A growth curve that starts flat and climbs, with four stages marked: idea, build, sell, scale">
+          <path d="M20 255 C 280 255, 360 245, 470 175 C 580 105, 700 62, 880 52 L880 300 L20 300 Z" fill="#FFD400" fill-opacity=".08"/>
+          <path id="growth-path" d="M20 255 C 280 255, 360 245, 470 175 C 580 105, 700 62, 880 52" fill="none" stroke="#FFD400" stroke-width="5" stroke-linecap="round"/>
+          <g data-t="0.05"><circle r="11" fill="#FFD400"/><text y="44" text-anchor="middle" class="disp" font-size="26" fill="#F2F2EE">Idea</text></g>
+          <g data-t="0.36"><circle r="11" fill="#FFD400"/><text y="44" text-anchor="middle" class="disp" font-size="26" fill="#F2F2EE">Build</text></g>
+          <g data-t="0.66"><circle r="11" fill="#FFD400"/><text y="44" text-anchor="middle" class="disp" font-size="26" fill="#F2F2EE">Sell</text></g>
+          <g data-t="0.97"><circle r="14" fill="#FFD400"/><circle r="22" fill="none" stroke="#FFD400" stroke-opacity=".5" stroke-width="2"/><text y="54" x="-8" text-anchor="middle" class="disp" font-size="26" fill="#F2F2EE">Scale</text></g>
+          <text x="580" y="36" class="hand" font-size="36" fill="#FFD400" transform="rotate(-3 580 36)">where I'm headed</text>
+        </svg>
+      </figure>
+    </div>
+  </section>
+
+  <section id="showroom" class="showroom">
+    <div class="wrap">
+      <div class="show-top">
+        <div>
+          <h2>What the dealership taught me</h2>
+          <p class="sub">Ather Energy Dealership &middot; Business Operations Associate</p>
+        </div>
+        <svg class="scooter" viewBox="0 0 460 270" role="img" aria-label="Line sketch of an electric scooter with a lightning bolt on its battery">
+          <line x1="10" y1="236" x2="450" y2="236" stroke="#F5F5F0" stroke-opacity=".35" stroke-width="2" stroke-dasharray="6 8" stroke-linecap="round"/>
+          <g stroke="#F5F5F0" stroke-opacity=".6" stroke-width="3" stroke-linecap="round"><line x1="14" y1="146" x2="54" y2="146"/><line x1="4" y1="170" x2="46" y2="170"/><line x1="22" y1="194" x2="50" y2="194"/></g>
+          <g fill="none" stroke="#FFD400" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="110" cy="198" r="38"/>
+            <circle cx="360" cy="198" r="38"/>
+            <path d="M110 198 C 104 162 104 138 126 124 C 140 115 160 114 190 114 L 240 114"/>
+            <path d="M240 114 C 262 114 268 148 290 152 L 318 152"/>
+            <path d="M360 198 L 328 72"/>
+          </g>
+          <circle cx="110" cy="198" r="10" fill="#FFD400"/>
+          <circle cx="360" cy="198" r="10" fill="#FFD400"/>
+          <path d="M96 106 C 120 94 190 94 244 102" fill="none" stroke="#F5F5F0" stroke-width="10" stroke-linecap="round"/>
+          <path d="M312 64 L354 58" fill="none" stroke="#F5F5F0" stroke-width="8" stroke-linecap="round"/>
+          <circle cx="338" cy="100" r="9" fill="#F5F5F0"/>
+          <rect x="156" y="132" width="86" height="54" rx="8" fill="none" stroke="#F5F5F0" stroke-width="3"/>
+          <path d="M204 138 L182 162 H198 L192 182 L218 154 H202 L210 138 Z" fill="#FFD400"/>
+          <text x="14" y="34" class="hand" font-size="28" fill="#FFD400" transform="rotate(-2 14 34)">a front-row seat to</text>
+          <text x="14" y="62" class="hand" font-size="28" fill="#FFD400" transform="rotate(-2 14 62)">an emerging market</text>
+        </svg>
+      </div>
+      <div class="steps">
+        <div class="item">
+          <svg class="ico" viewBox="0 0 72 72" aria-hidden="true"><circle cx="39" cy="39" r="30" fill="none" stroke="#F5F5F0" stroke-opacity=".5" stroke-width="2"/><circle cx="33" cy="33" r="30" fill="#FFD400"/><g transform="translate(9 9)" fill="none" stroke="#0B0B0C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="12"/><circle cx="24" cy="24" r="4.5"/><g stroke-width="6" stroke-linecap="butt"><path d="M24 4v7"/><path d="M24 37v7"/><path d="M4 24h7"/><path d="M37 24h7"/><path d="M10 10l5 5"/><path d="M33 33l5 5"/><path d="M38 10l-5 5"/><path d="M15 33l-5 5"/></g></g></svg>
+          <h3>How a dealership really runs</h3>
+          <p>I've seen what it takes to run an electric vehicle dealership day to day, and how automotive retail works as an industry.</p>
+        </div>
+        <div class="item">
+          <svg class="ico" viewBox="0 0 72 72" aria-hidden="true"><circle cx="39" cy="39" r="30" fill="none" stroke="#F5F5F0" stroke-opacity=".5" stroke-width="2"/><circle cx="33" cy="33" r="30" fill="#FFD400"/><g transform="translate(9 9)" fill="none" stroke="#0B0B0C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="17" cy="16" r="6"/><path d="M5 40 C5 29 29 29 29 40"/><circle cx="33" cy="19" r="5"/><path d="M31 38 C32 31 44 31 44 40"/></g></svg>
+          <h3>Customers come first</h3>
+          <p>Working with customers showed me how relationships, sales processes and service all fit together.</p>
+        </div>
+        <div class="item">
+          <svg class="ico" viewBox="0 0 72 72" aria-hidden="true"><circle cx="39" cy="39" r="30" fill="none" stroke="#F5F5F0" stroke-opacity=".5" stroke-width="2"/><circle cx="33" cy="33" r="30" fill="#FFD400"/><g transform="translate(9 9)" fill="#0B0B0C" stroke="#0B0B0C" stroke-width="3" stroke-linejoin="round"><path d="M27 5 L11 27 H22 L19 43 L37 20 H26 Z"/></g></svg>
+          <h3>Electric mobility up close</h3>
+          <p>I've watched competition, customer preferences and business development play out in electric mobility.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="study" class="study">
+    <div class="wrap">
+      <h2>Where I'm studying</h2>
+      <div class="study-top">
+        <div>
+          <div class="tl" role="img" aria-label="Timeline: IPER Bhopal BBA from 2025 to 2028, IIM Bangalore BBA-DBE from 2026 to 2029, overlapping from 2026 to 2028">
+            <span class="yr">2025</span><span class="yr">2026</span><span class="yr">2027</span><span class="yr">2028</span><span class="yr">2029</span>
+            <div class="bar b">IPER Bhopal &middot; BBA Marketing</div>
+            <div class="bar a">IIM Bangalore &middot; BBA-DBE</div>
+          </div>
+          <p class="tl-note">From 2026 to 2028 I'm in both programmes at once.</p>
+        </div>
+        <svg class="route" viewBox="0 0 280 270" role="img" aria-label="Dotted route from Bhopal in the north to Bangalore in the south">
+          <defs><pattern id="mapdots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.2" fill="#F5F5F0" fill-opacity=".18"/></pattern></defs>
+          <rect x="0" y="0" width="280" height="270" rx="14" fill="url(#mapdots)"/>
+          <path d="M120 64 C 250 96, 250 190, 132 222" fill="none" stroke="#FFD400" stroke-width="4" stroke-linecap="round" stroke-dasharray="1 10"/>
+          <circle cx="120" cy="64" r="17" fill="none" stroke="#F5F5F0" stroke-opacity=".5" stroke-width="2"/>
+          <circle cx="120" cy="64" r="9" fill="#FFD400"/>
+          <circle cx="132" cy="222" r="17" fill="none" stroke="#F5F5F0" stroke-opacity=".5" stroke-width="2"/>
+          <circle cx="132" cy="222" r="9" fill="#FFD400"/>
+          <text x="96" y="62" text-anchor="end" class="map-city" font-size="22" fill="#F2F2EE">Bhopal</text>
+          <text x="96" y="84" text-anchor="end" class="map-tag" font-size="13" fill="#FFD400">IPER</text>
+          <text x="108" y="226" text-anchor="end" class="map-city" font-size="22" fill="#F2F2EE">Bangalore</text>
+          <text x="108" y="248" text-anchor="end" class="map-tag" font-size="13" fill="#FFD400">IIM</text>
+        </svg>
+      </div>
+      <div class="cols3">
+        <div>
+          <p class="when">2026 &ndash; 2029</p>
+          <h3>Indian Institute of Management (IIM), Bangalore</h3>
+          <p>BBA in Digital Business &amp; Entrepreneurship (BBA-DBE)</p>
+        </div>
+        <div>
+          <p class="when">2025 &ndash; 2028</p>
+          <h3>Institute of Professional Education and Research (IPER), Bhopal</h3>
+          <p>Bachelor of Business Administration (BBA), Marketing</p>
+        </div>
+        <div>
+          <p class="when">Class XII</p>
+          <h3>Campion School, Bhouri, Bhopal</h3>
+          <p>CBSE, Commerce, 85.6%</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="two-wrap">
+    <section>
+      <div class="wrap two">
+        <div>
+          <h2>Outside the classroom</h2>
+          <ul class="stickers">
+            <li class="stk">
+              <div class="sticker" aria-hidden="true"><small>AIR</small><b>63</b></div>
+              <div><strong>Spell Bee</strong><span class="t">All India Rank 63 at the WIZ National Spell Bee Competition.</span></div>
+            </li>
+            <li class="stk">
+              <div class="sticker" aria-hidden="true"><small>School</small><b>3&times;</b></div>
+              <div><strong>Best Speaker</strong><span class="t">Awarded at school three years in a row.</span></div>
+            </li>
+            <li class="stk">
+              <div class="sticker" aria-hidden="true"><small>Lok Sabha</small><b class="sm">MUN</b></div>
+              <div><strong>Best Journalist</strong><span class="t">Won the award in the Lok Sabha committee at Model UN.</span></div>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h2>What I bring</h2>
+          <p>Market research, data analytics and MS Excel are my day-to-day tools. I put together pitch decks and present them, and sales and customer relations are what I've seen most up close at the dealership.</p>
+          <p>I like explaining ideas clearly, which is probably why the speaking awards came first.</p>
+          <ul class="chips">
+            <li>Business &amp; Entrepreneurship</li>
+            <li>Digital Branding</li>
+            <li>Sales &amp; Customer Relations</li>
+            <li>Pitch Decks &amp; Presentation</li>
+            <li>Market Research</li>
+            <li>Data Analytics</li>
+            <li>MS Excel</li>
+            <li>Strong Communication</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<svg class="zig" viewBox="0 0 1200 26" preserveAspectRatio="none" aria-hidden="true"><defs><pattern id="zz" width="48" height="26" patternUnits="userSpaceOnUse"><path d="M0 26 L24 0 L48 26 Z" fill="#FFD400"/></pattern></defs><rect width="1200" height="26" fill="url(#zz)"/></svg>
+<footer class="contact" id="contact">
+  <div class="wrap">
+    <h2>Let's talk business.</h2>
+    <p class="ask">Got an idea, a startup you're building, or just want to talk about how businesses work? I'd like to hear from you.</p>
+    <p class="start">start here<svg viewBox="0 0 30 40" aria-hidden="true"><path d="M10 4 C 6 16, 8 28, 18 34 M18 34 L8 32 M18 34 L20 24" fill="none" stroke="#0B0B0C" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></p>
+    <dl class="rows">
+      <div class="row">
+        <dt>Email</dt>
+        <dd id="val-email"><a href="mailto:garv.joshi26@iimb.ac.in">garv.joshi26@iimb.ac.in</a></dd>
+        <button class="copy" type="button" data-copy="val-email" aria-label="Copy email address">Copy</button>
+      </div>
+      <div class="row">
+        <dt>Phone</dt>
+        <dd id="val-phone">+91 9302180480</dd>
+        <button class="copy" type="button" data-copy="val-phone" aria-label="Copy phone number">Copy</button>
+      </div>
+      <div class="row">
+        <dt>Based in</dt>
+        <dd>Bhopal, Madhya Pradesh</dd>
+      </div>
+    </dl>
+    <p class="foot">Written in Bhopal. &copy; 2026 Garv Joshi</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var p = document.getElementById('growth-path');
+  if (p && p.getPointAtLength) {
+    var L = p.getTotalLength();
+    document.querySelectorAll('[data-t]').forEach(function (g) {
+      var pt = p.getPointAtLength(L * parseFloat(g.getAttribute('data-t')));
+      g.setAttribute('transform', 'translate(' + pt.x + ' ' + pt.y + ')');
+    });
+  }
+})();
+document.querySelectorAll('[data-copy]').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    var el = document.getElementById(btn.getAttribute('data-copy'));
+    var text = el.textContent.trim();
+    function selectText() {
+      var r = document.createRange();
+      r.selectNodeContents(el);
+      var s = window.getSelection();
+      s.removeAllRanges();
+      s.addRange(r);
+      btn.textContent = 'Selected';
+    }
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () { btn.textContent = 'Copied'; }, selectText);
+      } else {
+        selectText();
+      }
+    } catch (e) {
+      selectText();
+    }
+    setTimeout(function () { btn.textContent = 'Copy'; }, 2000);
+  });
+});
+</script>
+
+</body></html>
